@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
-import { FaBook } from 'react-icons/fa';
-import { GiMicroscope } from 'react-icons/gi';
-import { FaSmile } from 'react-icons/fa';
+// import { FaBook } from 'react-icons/fa';
+// import { GiMicroscope } from 'react-icons/gi';
+// import { FaSmile } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
-import { FaUser } from 'react-icons/fa';
-import { FaArrowRight } from 'react-icons/fa';
+// import { FaUser } from 'react-icons/fa';
+// import { FaArrowRight } from 'react-icons/fa';
 import hero from '../assets/hero.jpg';
 import other from '../assets/other.jpg'
 
