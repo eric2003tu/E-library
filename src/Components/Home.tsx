@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
-// import { FaBook } from 'react-icons/fa';
-// import { GiMicroscope } from 'react-icons/gi';
-// import { FaSmile } from 'react-icons/fa';
+import { MdLibraryBooks } from "react-icons/md";
+import { TbMicroscope } from "react-icons/tb";
+import { RiBearSmileLine } from "react-icons/ri";
 import { FaSearch } from 'react-icons/fa';
-// import { FaUser } from 'react-icons/fa';
-// import { FaArrowRight } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 import hero from '../assets/hero.jpg';
 import other from '../assets/other.jpg'
 
@@ -30,7 +30,11 @@ const Home:React.FC = () => {
           if(!menu)setMenu(true)
           else setMenu(false)
         }}>Menu</h1>
-      <ul className={ menu ? 'absolute grid sm:grid md:hidden lg:hidden grid-cols-1 justify-self-end bg-blue-300 mt-17 text-white font-bold text-[22px] transition-all shadow-[1px_3px_6px_gray]' : 'hidden'}>
+  <ul className={
+  menu
+    ? 'absolute right-0 top-17 grid grid-cols-1 sm:grid md:hidden lg:hidden gap-4 bg-blue-300 p-6 text-white font-bold text-xl shadow-xl rounded-l-lg transform translate-x-0 transition-transform duration-300 ease-out z-50'
+    : 'hidden'
+}>
         <li className='grid cursor-pointer hover:text-green-300 hover:bg-white px-5 py-2 transition'>Our services</li>
         <li className='cursor-pointer hover:text-green-300 transition hover:bg-white px-5 py-2'>Login</li>
         <li className='cursor-pointer hover:text-green-300 transition hover:bg-white px-5 py-2'>Register</li>
@@ -41,33 +45,89 @@ const Home:React.FC = () => {
         <div className=' bg-gray-900/45 w-full justify-items-center text-center py-6'>
         <h1 className='text-white font-bold leading-12 text-[50px] '>Unlock a World of<br/>Knowledge</h1>
         <p className='text-[18px] font-light text-white leading-6 my-6'>Explore books, attend events, and <br/>connect with the community</p>
-        <div className="relative w-full flex justify-center">
-        <div className="relative max-w-2xl mx-auto">
+        <div className=" w-full flex justify-center">
+        <div className="max-w-3xl  mb-3">
             <input
               type="text"
               name="search"
               placeholder="Search for a book..."
-              className="w-full bg-white px-5 py-3 pl-5 pr-12 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-white px-5 py-3 pl-9 pr-12 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <FaSearch
               size={20}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 cursor-pointer"
+              className="ml-1 mt-[-33px] text-gray-500 hover:text-gray-700 cursor-pointer"
             />
           </div>
           
           </div>
           <div className='grid grid-cols-2 gap-3 my-4 justify-self-center justify-items-center'>
-            <Link to='/' className='bg-blue-800 text-white text-center py-1 px-5 rounded-md text-[24px]'>Browse Now</Link>
+            <Link to='/' className='bg-blue-400 hover:bg-blue-500 transition  text-white text-center py-1 px-5 rounded-md text-[24px]'>Browse Now</Link>
             <Link to='/' className=' border text-white text-center font-light  px-5 rounded-md text-[24px]'>Join Now</Link>
           </div>
         </div>
       </div>
       <div className='max-w-2xl mx-auto gap-15 grid grid-cols-2 p-4'>
         <img src={hero} alt='others' className='w-full object-contain rounded-md'/>
-        <div className=' max-w-2xl mx-autotext-center'>
+        <div className=' max-w-2xl mx-auto text-center'>
           <h1 className='text-[24px] font-bold'>About City Library</h1>
           <p className='mt-5 mb-7'>Providing knowledge and community services for over 50 years</p>
           <Link to='/' className=' text-blue-500 text-center py-1 px-5 border rounded-md text-[24px]'>Learn More</Link>
+        </div>
+      </div>
+      <div className='grid grid-cols-1 py-4 justify-items-center'>
+        <h1 className='text-[33px] font-bold '>Our Collections</h1>
+        <div className='grid w-full grid-cols-3 justify-self-center sm:gap-4 md:gap-6 lg:gap-9 py-3'>
+          <div className='grid grid-cols-[0.6fr_2.5fr] w-full justify-self-center gap-3 shadow-lg p-2'>
+            <div className='w-fit bg-blue-700 p-2 h-fit rounded-lg justify-items-center'>
+              <MdLibraryBooks size={40} className='text-white self-center'/>
+            </div>
+            <div className='max-w-2xl mx-auto'>
+            <h1 className='text-[24px] font-bold text-[#000C4A]'>Fiction</h1>
+            <p className='text-[17px] text-[#000C4A]'>Novels and<br/> stories from<br/> various genres</p>
+            </div>
+          </div>
+          <div className='grid grid-cols-[0.6fr_2.5fr] w-full justify-self-center gap-3 shadow-lg p-2'>
+            <div className='w-fit  p-2 h-fit rounded-lg justify-items-center'>
+              <TbMicroscope size={45} className='text-blue-700 self-center'/>
+            </div>
+            <div className='max-w-2xl mx-auto'>
+            <h1 className='text-[24px] font-bold text-[#000C4A]'>Science</h1>
+            <p className='text-[17px] text-[#000C4A]'>Resources on<br/> scientific topics<br/> and research</p>
+            </div>
+          </div>
+          <div className='grid grid-cols-[0.6fr_2.5fr] w-full justify-self-center gap-3 shadow-lg p-2'>
+            <div className='w-fit bg-orange-700 p-2 h-fit rounded-lg justify-items-center'>
+              <RiBearSmileLine size={40} className='text-white self-center'/>
+            </div>
+            <div className='max-w-2xl mx-auto'>
+            <h1 className='text-[24px] font-bold text-[#000C4A]'>Children's Books</h1>
+            <p className='text-[17px] text-[#000C4A]'>Interactive<br/> stories for kids</p>
+            </div>
+          </div>
+        </div>
+        <div className='grid grid-cols-1 py-4 justify-items-center'>
+          <h1 className='text-[33px] font-bold '>Upcoming Events</h1>
+          <div className='grid w-full grid-cols-3 justify-self-center gap-10 py-3'>
+            <div className='grid grid-cols-1 gap-1 shadow-lg px-15 py-3'>
+              <p className='text-[14px]'>Apr 15</p>
+            <h1 className='text-[24px] font-bold text-[#000C4A]'>Author Talk</h1>
+            <p className='text-[17px] text-[#000C4A]'>A discussion with a<br/> featured writer</p>
+            <Link to='/' className='bg-blue-400 hover:bg-blue-500 transition  text-center text-[20px] text-white py-2 rounded-md'>Register</Link>
+            </div>
+            <div className='grid grid-cols-1 gap-1 shadow-lg px-15 py-3'>
+              <p className='text-[14px]'>May 5</p>
+            <h1 className='text-[24px] font-bold text-[#000C4A]'>Book Fair</h1>
+            <p className='text-[17px] text-[#000C4A]'>Explore new used <br/> books</p>
+            <Link to='/' className='bg-blue-400 hover:bg-blue-500 transition  text-center text-[20px] text-white py-2 rounded-md'>Register</Link>
+            </div>
+            <div className='grid grid-cols-1 gap-1 shadow-lg px-15 py-3'>
+              <p className='text-[14px]'>June 20</p>
+            <h1 className='text-[24px] font-bold text-[#000C4A]'>Children's story hour</h1>
+            <p className='text-[17px] text-[#000C4A]'>Interactive stories for<br/> kids</p>
+            <Link to='/' className='bg-blue-400 hover:bg-blue-500 transition  text-center text-[20px] text-white py-2 rounded-md'>Register</Link>
+            </div>
+          </div>
+          
         </div>
       </div>
 
@@ -144,6 +204,8 @@ const Home:React.FC = () => {
           </div>
         </div>
       </div>
+      {/* Bottom division */}
+
     </div>
   )
 }
