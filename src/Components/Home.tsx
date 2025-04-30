@@ -4,7 +4,6 @@ import { MdLibraryBooks } from "react-icons/md";
 import { TbMicroscope } from "react-icons/tb";
 import { RiBearSmileLine } from "react-icons/ri";
 import { FaSearch } from 'react-icons/fa';
-import { FaUser } from 'react-icons/fa';
 import { FaArrowRight } from 'react-icons/fa';
 import hero from '../assets/hero.jpg';
 import other from '../assets/other.jpg'
@@ -23,7 +22,7 @@ const Home:React.FC = () => {
       <p className='text-white font-bold text-[22px] cursor-pointer hover:text-green-300 transition'>Home</p>
       <ul className='hidden sm:hidden md:flex lg:flex flex-row justify-self-end text-white font-bold gap-8 mt-[-30px] text-[22px]'>
         <li className='grid cursor-pointer hover:text-green-300 transition'>Our services</li>
-        <li className='cursor-pointer hover:text-green-300 transition'>Login</li>
+        <li className='cursor-pointer hover:text-green-300 transition'><Link to='/login'>Login</Link> </li>
         <li className='cursor-pointer hover:text-green-300 transition'>Register</li>
       </ul>
       <h1 className='grid sm:grid md:hidden lg:hidden  cursor-pointer hover:text-green-300 transition justify-end mt-[-30px] text-[23px] text-white' onClick={function(){
@@ -32,11 +31,11 @@ const Home:React.FC = () => {
         }}>Menu</h1>
   <ul className={
   menu
-    ? 'absolute right-0 top-17 grid grid-cols-1 sm:grid md:hidden lg:hidden gap-4 bg-blue-300 p-6 text-white font-bold text-xl shadow-xl rounded-l-lg transform translate-x-0 transition-transform duration-300 ease-out z-50'
+    ? 'absolute right-0 top-17 grid grid-cols-1 sm:grid md:hidden lg:hidden gap-4 bg-blue-300 p-6 text-white font-bold text-xl shadow-xl rounded-l-lg '
     : 'hidden'
 }>
         <li className='grid cursor-pointer hover:text-green-300 hover:bg-white px-5 py-2 transition'>Our services</li>
-        <li className='cursor-pointer hover:text-green-300 transition hover:bg-white px-5 py-2'>Login</li>
+        <li className='cursor-pointer hover:text-green-300 transition hover:bg-white px-5 py-2'><Link to='/login'>Login</Link></li>
         <li className='cursor-pointer hover:text-green-300 transition hover:bg-white px-5 py-2'>Register</li>
       </ul>
       </nav>
@@ -66,8 +65,8 @@ const Home:React.FC = () => {
           </div>
         </div>
       </div>
-      <div className='max-w-2xl mx-auto gap-15 grid grid-cols-2 p-4'>
-        <img src={hero} alt='others' className='w-full object-contain rounded-md'/>
+      <div className='max-w-2xl mx-auto gap-15 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-4'>
+        <img src={hero} alt='others' className='hidden sm:hidden md:flex lg:flex w-full object-contain rounded-md'/>
         <div className=' max-w-2xl mx-auto text-center'>
           <h1 className='text-[24px] font-bold'>About City Library</h1>
           <p className='mt-5 mb-7'>Providing knowledge and community services for over 50 years</p>
@@ -76,8 +75,8 @@ const Home:React.FC = () => {
       </div>
       <div className='grid grid-cols-1 py-4 justify-items-center'>
         <h1 className='text-[33px] font-bold '>Our Collections</h1>
-        <div className='grid w-full grid-cols-3 justify-self-center sm:gap-4 md:gap-6 lg:gap-9 py-3'>
-          <div className='grid grid-cols-[0.6fr_2.5fr] w-full justify-self-center gap-3 shadow-lg p-2'>
+        <div className='grid w-full sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-self-center sm:gap-2 md:gap-4 lg:gap-9 py-3'>
+          <div className='flex flex-row  w-full justify-self-center gap-3 shadow-lg p-2'>
             <div className='w-fit bg-blue-700 p-2 h-fit rounded-lg justify-items-center'>
               <MdLibraryBooks size={40} className='text-white self-center'/>
             </div>
@@ -104,10 +103,19 @@ const Home:React.FC = () => {
             <p className='text-[17px] text-[#000C4A]'>Interactive<br/> stories for kids</p>
             </div>
           </div>
+          <div className='hidden sm:hidden md:grid lg:hidden grid-cols-[0.6fr_2.5fr] w-full justify-self-center gap-3 shadow-lg p-2'>
+            <div className='w-fit bg-orange-700 p-2 h-fit rounded-lg justify-items-center'>
+              <RiBearSmileLine size={40} className='text-white self-center'/>
+            </div>
+            <div className='max-w-2xl mx-auto'>
+            <h1 className='text-[24px] font-bold text-[#000C4A]'>Children's Books</h1>
+            <p className='text-[17px] text-[#000C4A]'>Interactive<br/> stories for kids</p>
+            </div>
+          </div>
         </div>
         <div className='grid grid-cols-1 py-4 justify-items-center'>
           <h1 className='text-[33px] font-bold '>Upcoming Events</h1>
-          <div className='grid w-full grid-cols-3 justify-self-center gap-10 py-3'>
+          <div className='grid w-full sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 justify-self-center gap-10 py-3'>
             <div className='grid grid-cols-1 gap-1 shadow-lg px-15 py-3'>
               <p className='text-[14px]'>Apr 15</p>
             <h1 className='text-[24px] font-bold text-[#000C4A]'>Author Talk</h1>
@@ -120,11 +128,17 @@ const Home:React.FC = () => {
             <p className='text-[17px] text-[#000C4A]'>Explore new used <br/> books</p>
             <Link to='/' className='bg-blue-400 hover:bg-blue-500 transition  text-center text-[20px] text-white py-2 rounded-md'>Register</Link>
             </div>
+            <div className='hidden sm:hidden md:grid lg:hidden grid-cols-1  gap-1 shadow-lg px-15 py-3'>
+              <p className='text-[14px]'>May 5</p>
+            <h1 className='text-[24px] font-bold text-[#000C4A]'>Book Fair</h1>
+            <p className='text-[17px] text-[#000C4A]'>Explore new used <br/> books</p>
+            <Link to='/' className='bg-blue-400 hover:bg-blue-500 transition  text-center text-[20px] text-white py-2 rounded-md'>Register</Link>
+            </div>
             <div className='grid grid-cols-1 gap-1 shadow-lg px-15 py-3'>
               <p className='text-[14px]'>June 20</p>
             <h1 className='text-[24px] font-bold text-[#000C4A]'>Children's story hour</h1>
             <p className='text-[17px] text-[#000C4A]'>Interactive stories for<br/> kids</p>
-            <Link to='/' className='bg-blue-400 hover:bg-blue-500 transition  text-center text-[20px] text-white py-2 rounded-md'>Register</Link>
+            <Link to='/' className='bg-blue-400 hover:bg-blue-500 transition  text-center text-[20px] text-white py-2 rounded-md '>Register</Link>
             </div>
           </div>
           
